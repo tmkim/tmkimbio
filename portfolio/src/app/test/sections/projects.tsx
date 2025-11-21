@@ -20,24 +20,22 @@ export default function Projects() {
   ];
 
   return (
-    <section className="h-screen snap-start flex items-center justify-center bg-white">
-      <motion.div
-        {...fadeUp}
-        className="grid gap-6 max-w-xl p-6"
-      >
-        <h2 className="text-4xl font-semibold text-center">Recent Projects</h2>
+    <motion.div
+      {...fadeUp}
+      className="grid gap-6 max-w-xl p-6"
+    >
+      <h2 className="text-4xl font-semibold text-center">Recent Projects</h2>
 
-        {projects.map((proj) => (
-          <motion.div
-            key={proj.title}
-            whileHover={{ scale: 1.03 }}
-            className="bg-neutral-100 p-4 rounded-xl shadow-sm"
-          >
-            <h3 className="text-xl font-semibold">{proj.title}</h3>
-            <p className="text-gray-600">{proj.desc}</p>
-          </motion.div>
-        ))}
-      </motion.div>
-    </section>
+      {projects.map((proj) => (
+        <motion.div
+          key={proj.title}
+          whileHover={{ scale: 1.03 }}
+          className="bg-neutral-100 p-4 rounded-xl shadow-sm"
+        >
+          <h3 className="text-xl font-semibold">{proj.title}</h3>
+          <p className="text-gray-600">{proj.desc}</p>
+        </motion.div>
+      ))}
+    </motion.div>
   );
 }

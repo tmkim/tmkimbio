@@ -1,0 +1,53 @@
+/* :root {
+  --bg: #8ee49b98;
+  --surface: #c3a5ff98;
+  --text: #E7ECF5;
+  --text-secondary: #A7B0C4;
+  --accent: #202531;
+  --accent-2: #2B3240;
+  --border: #384255;
+  
+  background: var(--bg);
+  color: var(--text);
+} */
+
+:root{
+  /* BASE */
+  --bg: #1c5252;             /* dark teal-black, atmospheric */
+  --surface: #295645;        /* soft arcane shadow */
+  --text: #EEF6F4;           /* warm, readable */
+  --text-secondary: #8CA8A4; /* misty muted aqua-gray */
+  --background: #2F2F2F;
+  --foreground: #ededed;
+
+  /* ACCENTS */
+  --accent: #3FF5D1;         /* glowing bio-teal */
+  --accent-2: #B48CFF;       /* crystalline violet */
+  --accent-3: #6FD1FF;       /* dome energy blue */
+
+  /* HIGHLIGHT / UI FLARE */
+  --highlight: #F6E48A;      /* gentle golden shimmer */
+
+  /* STRUCTURE */
+  --border: rgba(108, 139, 139, 0.25); /* faint tech-gray */
+}
+
+/* Teal glow from the dome */
+.gradient-eco {
+  background: radial-gradient(
+    circle at 50% 10%,
+    rgba(63, 245, 209, 0.18),
+    transparent 60%
+  );
+}
+
+/* Crystal violet arcane shimmer */
+.gradient-crystal {
+  background: linear-gradient(
+    135deg,
+    rgba(180, 140, 255, 0.22),
+    rgba(111, 209, 255, 0.12)
+  );
+}
+/* <div class="card gradient-eco">...</div>
+<div class="section gradient-crystal">...</div> */
