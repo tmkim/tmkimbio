@@ -6,6 +6,7 @@ import { inter } from '@/lib/fonts';
 import Navbar from '@/components/navbar';
 import { Suspense, useState } from 'react';
 import ScrollDots from './test/ScrollDots';
+import NavBubbles from '@/components/NavBubbles';
 
 export default function RootLayout({
   children,
@@ -17,6 +18,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.className} antialiased`}>
         <ScrollDots />
+        <NavBubbles />
         <div className="flex flex-col min-h-screen overflow-y-hidden">
           <Suspense>
             <div className="flex-grow">{children}</div>
