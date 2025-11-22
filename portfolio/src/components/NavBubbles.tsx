@@ -3,12 +3,33 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 
 const bubbles = [
-  { id: "projects", label: "Projects", href: "/projects" },
-  { id: "resume", label: "Resume", href: "/resume" },
-  { id: "passions", label: "Passions", href: "/passions" },
-  { id: "contact", label: "Contact", href: "/contact" }
+  {
+    id: "projects",
+    label: "Projects",
+    href: "/projects",
+    src: "/preview/game1.png"
+  },
+  {
+    id: "resume",
+    label: "Resume",
+    href: "/resume",
+    src: "/preview/game2.png"
+  },
+  {
+    id: "passions",
+    label: "Passions",
+    href: "/passions",
+    src: "/preview/game3.png"
+  },
+  {
+    id: "contact",
+    label: "Contact",
+    href: "/contact",
+    src: "/preview/game4.png"
+  }
 ] as const;
 
 // --- Motion Variants ---
@@ -21,14 +42,14 @@ const bubbleVariants: Variants = {
       type: "spring",
       stiffness: 200,
       damping: 18,
-      delay: i * 0.12 // stagger entrance only
+      delay: i * 0.12 // entrance stagger only
     }
   }),
   exit: {
     scale: 0,
     opacity: 0,
     transition: {
-      duration: 0.15 // disappear immediately
+      duration: 0.15 // fast exit, no stagger
     }
   }
 };
@@ -67,7 +88,7 @@ export default function NavBubbles() {
               initial="hidden"
               animate="visible"
               exit="exit"
-              custom={index} // gives the variant access to the index
+              custom={index}
             >
               <Link href={b.href} className="pointer-events-auto">
                 <motion.div
@@ -81,20 +102,36 @@ export default function NavBubbles() {
                     delay: index * 0.3
                   }}
                   className="
+                    relative
                     flex items-center justify-center
                     rounded-full
-                    bg-[var(--accent-2)]
-                    text-[var(--foreground)]
+                    text-white font-bold text-2xl text-center
+                    overflow-hidden
                     shadow-xl
-                    font-bold text-xl text-center text-black
 
                     w-[32vw] h-[32vw]
                     max-w-[320px] max-h-[320px]
+                    min-w-[200px] min-h-[200px]
 
                     border-4 border-[var(--accent)]
                   "
                 >
-                  {b.label}
+                  {/* Background image */}
+                  <Image
+                    src={b.src}
+                    alt={b.label}
+                    fill
+                    className="object-cover"
+                    priority
+                  />
+
+                  {/* Dark overlay for readability */}
+                  <div className="absolute inset-0 bg-black/40" />
+
+                  {/* Text on top */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    {b.label}
+                  </div>
                 </motion.div>
               </Link>
             </motion.div>
