@@ -17,24 +17,61 @@ export default function Contact() {
       </p>
 
         <div className="mt-6 flex gap-4 text-black">
-          <button
-            className="flex items-center justify-center min-w-[160px] px-4 py-2 text-lg font-semibold bg-[var(--accent)] rounded-md hover:cursor-pointer"
-            onClick={() => setContactModal(true)}
+          <motion.a
+            whileHover={{ scale: 1.05 }}
+            href="https://www.linkedin.com/in/tmk13"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="
+              block
+              bg-[var(--accent-2)]
+              rounded-xl
+              shadow-sm
+              p-4
+              text-lg font-semibold
+              flex items-center justify-center
+              hover:cursor-pointer
+            "
           >
-            <p className="hover:underline">Send me an Email</p>
-          </button>
-          <button
-            className="flex items-center justify-center min-w-[160px] px-4 py-2 text-lg font-semibold bg-[var(--accent-2)] rounded-md hover:cursor-pointer"
+            Connect on LinkedIn
+          </motion.a>
+
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            className="bg-[var(--accent)] rounded-xl shadow-sm"
           >
-            <a href="https://www.linkedin.com/in/tmk13" className="hover:underline"
-            target="_blank" rel="noopener noreferrer">Find me on LinkedIn</a>
-          </button>
-          <button
-            className="flex items-center justify-center min-w-[160px] px-4 py-2 text-lg font-semibold bg-[var(--accent-3)] rounded-md hover:cursor-pointer"
+            <button
+              onClick={() => setContactModal(true)}
+              className="
+                w-full h-full
+                flex items-center justify-center
+                text-lg font-semibold
+                rounded-md p-4
+                hover:cursor-pointer
+              "
+            >
+              Send me an Email
+            </button>
+          </motion.div>
+        
+          <motion.a
+            whileHover={{ scale: 1.05 }}
+            href="https://www.github.com/tmkim"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="
+              block
+              bg-[var(--accent-3)]
+              rounded-xl
+              shadow-sm
+              p-4
+              text-lg font-semibold
+              flex items-center justify-center
+              hover:cursor-pointer
+            "
           >
-            <a href="https://www.github.com/tmkim" className="hover:underline"
-            target="_blank" rel="noopener noreferrer">Check out my Github</a>
-          </button>
+            Check out my Github
+          </motion.a>
         </div>
 
       {contactModal && (

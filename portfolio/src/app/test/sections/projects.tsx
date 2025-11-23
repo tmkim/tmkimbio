@@ -6,16 +6,22 @@ import { fadeUp } from "@/lib/animations";
 export default function Projects() {
   const projects = [
     {
-      title: "Munchie Mage",
-      desc: "A playful recipe recommender powered by AI + Next.js + DRF.",
-    },
-    {
       title: "Bounty Hunter",
-      desc: "Trading card analysis platform with price tracking + PostgreSQL.",
+      link: "https://github.com/tmkim/bountyhunter",
+      desc: "One Piece TCG deck builder and price tracker.",
+      built: "Built with Next.js (Typescript), Django Rest Framework, PostgreSQL"
     },
     {
-      title: "Portfolio",
-      desc: "This site! A smooth, animated scroll experience.",
+      title: "Dank Bank",
+      link: "https://github.com/tmkim/dank_bank",
+      desc: "Catalog of personal experiences to share my recommendations with the world.",
+      built: "Built with Next.js (Typescript), Django Rest Framework, PostgreSQL"
+    },
+    {
+      title: "T-Planet",
+      link: "https://github.com/tmkim/mle-basic",
+      desc: "Bare-bones study platform with customizable exam options to help prepare for the Taiwan Medical Licensing Exam.",
+      built: "Built with MongoDB, Express, Angular, Node.js, PostgreSQL"
     },
   ];
 
@@ -27,14 +33,18 @@ export default function Projects() {
       <h2 className="text-4xl font-semibold text-center">Recent Projects</h2>
 
       {projects.map((proj) => (
-        <motion.div
+        <motion.a
           key={proj.title}
+          href={proj.link}
+          target="_blank"
+          rel="noopener noreferrer"
           whileHover={{ scale: 1.03 }}
           className="bg-neutral-100 p-4 rounded-xl shadow-sm"
         >
-          <h3 className="text-xl font-semibold">{proj.title}</h3>
+          <h3 className="text-xl font-semibold text-black">{proj.title}</h3>
           <p className="text-gray-600">{proj.desc}</p>
-        </motion.div>
+          <p className="text-gray-600 text-sm">{proj.built}</p>
+        </motion.a>
       ))}
     </motion.div>
   );
