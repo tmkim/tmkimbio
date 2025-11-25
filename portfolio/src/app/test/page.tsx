@@ -3,6 +3,8 @@ import Passions from "./sections/passions"
 import Projects from "./sections/projects"
 import Resume from "./sections/resume"
 import Contact from "./sections/contact"
+import PassionsB from "./PassionsB"
+import PassionsC from "./PassionsC"
 
 export default function Page(){
   return(
