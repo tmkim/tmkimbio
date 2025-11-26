@@ -3,6 +3,7 @@ import Passions from "./sections/passions"
 import Projects from "./sections/projects"
 import Resume from "./sections/resume"
 import Contact from "./sections/contact"
+import FlipBookProjects from "./FlipbookProjects"
 
 export default function Page(){
   return(
@@ -16,7 +17,7 @@ export default function Page(){
       </section>
 
       <section id="projects" className="h-screen snap-start flex items-center justify-center bg-[var(--bg)]">
-        <Projects />
+        <FlipBookProjects/>
       </section>
 
       <section id="resume" className="h-screen snap-start flex items-center justify-center bg-[var(--surface)]">
