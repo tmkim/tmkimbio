@@ -8,20 +8,24 @@ import { usePreloadImages } from "@/app/test/usePreloadImages";
 
 const passions = [
   {
+    id: "coding", label: "Coding", imgs: ["/passions/p9.png", "/passions/p10.png", "/passions/p11.png", "/passions/p12.png"],
+    blurb: "Idk dude stuff in here and whatever and like talking about what this is about and why it is included and what i enjoy about it i guess man idk bro lmao xd"
+  },
+  {
     id: "gaming", label: "Gaming", imgs: ["/passions/game1.png", "/passions/game2.png", "/passions/game3.png", "/passions/game4.png",],
-    blurb: "Idk dude stuff in here and whatever and like talking about what this is about and why it is included and what i enjoy about it i guess man idk bro lmao xd"
+    blurb: "casuals, esports, puzzles, etc"
   },
   {
-    id: "lifting", label: "Weightlifting", imgs: ["/passions/p1.png", "/passions/p2.png", "/passions/p3.png", "/passions/p4.png"],
-    blurb: "Idk dude stuff in here and whatever and like talking about what this is about and why it is included and what i enjoy about it i guess man idk bro lmao xd"
+    id: "sports", label: "Sports", imgs: ["/passions/p1.png", "/passions/p2.png", "/passions/p3.png", "/passions/p4.png"],
+    blurb: "skiing, swimming, disc golf, etc"
   },
   {
-    id: "tcg", label: "Trading Cards", imgs: ["/passions/p5.png", "/passions/p6.png", "/passions/p7.png", "/passions/p8.png"],
-    blurb: "Idk dude stuff in here and whatever and like talking about what this is about and why it is included and what i enjoy about it i guess man idk bro lmao xd"
+    id: "music", label: "Music", imgs: ["/passions/p5.png", "/passions/p6.png", "/passions/p7.png", "/passions/p8.png"],
+    blurb: "wonky bass music go ee er ee err wubalubadubdub"
   },
   {
-    id: "coding", label: "Coding Projects", imgs: ["/passions/p9.png", "/passions/p10.png", "/passions/p11.png", "/passions/p12.png"],
-    blurb: "Idk dude stuff in here and whatever and like talking about what this is about and why it is included and what i enjoy about it i guess man idk bro lmao xd"
+    id: "food", label: "Food", imgs: ["/passions/p9.png", "/passions/p10.png", "/passions/p11.png", "/passions/p12.png"],
+    blurb: "eating, cooking, eating while cooking, you know"
   },
 ];
 
