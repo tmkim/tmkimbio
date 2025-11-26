@@ -17,7 +17,7 @@ const projects: Project[] = [
     title: "Bounty Hunter",
     desc: "One Piece TCG deck builder and price tracker.",
     built: "Built with Next.js (Typescript), Django Rest Framework, PostgreSQL",
-    imgs: ["/passions/p1.png"],
+    imgs: ["/passions/p1.png", "/passions/p2.png", "/passions/p3.png",],
   },
   {
     title: "Dank Bank",
@@ -95,41 +95,41 @@ export default function FlipBookProjects() {
 
     if (dir === "prev") {
 
-    setStackIndices({
-      left: (current - 1 + projects.length) % projects.length,
-      right: (current) % projects.length,
-    })
-    
-    leftControls.start({
-      rotateY: [0, 180],
-      transition: { duration: 0.55, ease: circInOut },
-    });
-
-    rightControls.start({
-      rotateY: [180, 0],
-      transition: { duration: 0.55, ease: circInOut },
-    });
-    
-    // Mid-flip: update current
-    setTimeout(() => {
-      setCurrent((c) => (c - 1 + projects.length) % projects.length);
-    }, 275);
-
-    // After flip: reset rotation and update stack
-    setTimeout(() => {
-      resetToOpen();
-
-      // compute new current manually to match what z-20 now shows
-      const newCurrent = (current - 1 + projects.length) % projects.length;
-
       setStackIndices({
-        left: (newCurrent - 1 + projects.length) % projects.length,
-        right: (newCurrent + 1) % projects.length,
+        left: (current - 1 + projects.length) % projects.length,
+        right: (current) % projects.length,
+      })
+
+      leftControls.start({
+        rotateY: [0, 180],
+        transition: { duration: 0.55, ease: circInOut },
       });
 
-      setIsFlipping(false);
-    }, 560);
-  }
+      rightControls.start({
+        rotateY: [180, 0],
+        transition: { duration: 0.55, ease: circInOut },
+      });
+
+      // Mid-flip: update current
+      setTimeout(() => {
+        setCurrent((c) => (c - 1 + projects.length) % projects.length);
+      }, 275);
+
+      // After flip: reset rotation and update stack
+      setTimeout(() => {
+        resetToOpen();
+
+        // compute new current manually to match what z-20 now shows
+        const newCurrent = (current - 1 + projects.length) % projects.length;
+
+        setStackIndices({
+          left: (newCurrent - 1 + projects.length) % projects.length,
+          right: (newCurrent + 1) % projects.length,
+        });
+
+        setIsFlipping(false);
+      }, 560);
+    }
 
   };
 
@@ -138,9 +138,8 @@ export default function FlipBookProjects() {
     const isLeft = side === "left";
     return (
       <div
-        className={`relative p-6 shadow-2xl border-4 border-[#8c7358] overflow-hidden h-full ${
-          isLeft ? "bg-[#f0e6d6] rounded-l-2xl" : "bg-[#fdf8ef] rounded-r-2xl"
-        }`}
+        className={`relative p-6 shadow-2xl border-10 border-[#8c7358] overflow-hidden h-full ${isLeft ? "bg-[#f0e6d6] rounded-l-2xl" : "bg-[#f0e6d6] rounded-r-2xl"
+          }`}
       >
         {isLeft ? (
           <>
@@ -164,38 +163,32 @@ export default function FlipBookProjects() {
           </div>
         )}
         <div
-          className={`absolute inset-0 pointer-events-none border-[8px] opacity-20 ${
-            isLeft ? "rounded-l-2xl border-[#d7c9b4]" : "rounded-r-2xl border-[#d7c9b4]"
-          }`}
+          className={`absolute inset-0 pointer-events-none border-[8px] opacity-20 ${isLeft ? "rounded-l-2xl border-[#d7c9b4]" : "rounded-r-2xl border-[#d7c9b4]"
+            }`}
         />
       </div>
     );
   };
 
   return (
-    <div className="relative flex flex-col items-center w-full select-none">
-      {/* NAV BUTTONS */}
-      <div className="flex justify-between w-full max-w-4xl mb-4 z-50">
-        <button
-          onClick={() => flipPage("prev")}
-          className="p-3 rounded-full bg-gray-900/70 text-white hover:bg-gray-900/90 shadow-xl"
-        >
-          <ArrowLeft className="w-6 h-6" />
-        </button>
-        <button
-          onClick={() => flipPage("next")}
-          className="p-3 rounded-full bg-gray-900/70 text-white hover:bg-gray-900/90 shadow-xl"
-        >
-          <ArrowRight className="w-6 h-6" />
-        </button>
-      </div>
-
-      {/* BOOK */}
-      <div className="relative w-full max-w-4xl h-[500px] perspective-1500" style={{ perspective: "1500px" }}>
+    <div className="relative flex justify-center items-center w-full select-none px-16">
+      <div
+        className="
+      w-full max-w-screen-xl mx-auto
+      border border-white/20
+      rounded-3xl
+      p-16
+      backdrop-blur-md
+      bg-black/40
+      shadow-[0_8px_32px_rgba(0,0,0,0.25)]
+    "
+      >
+        {/* BOOK */}
+      <div className="relative w-full max-w-screen-xl  h-[600px] perspective-1500" style={{ perspective: "1500px" }}>
         {/* z-0: book cover */}
-        <div className="absolute inset-0 bg-[#b89e7c] rounded-2xl shadow-[0_0_40px_rgba(0,0,0,0.45)] border-4 border-[#8c7358]" />
+        <div className="absolute inset-0 bg-[#b89e7c] p-2 rounded-2xl shadow-[0_0_40px_rgba(0,0,0,0.45)] border-4 border-[#8c7358]" />
 
-        {/* z-10: page stack (background) */}
+        {/* z-10: page stack */}
         <div className="absolute inset-0 grid grid-cols-2 z-10 gap-0">
           {renderPage(projects[stackIndices.left], "left")}
           {renderPage(projects[stackIndices.right], "right")}
@@ -224,7 +217,24 @@ export default function FlipBookProjects() {
 
         {/* SPINE */}
         <div className="absolute top-4 bottom-4 left-1/2 w-3 -translate-x-1/2 bg-[#6c5840] shadow-inner rounded-sm" />
+
+        {/* NAV BUTTONS (positioned outside book) */}
+        <button
+          onClick={() => flipPage("prev")}
+          className="absolute left-[-60px] top-1/2 transform -translate-y-1/2 p-3 rounded-full bg-gray-900/70 text-white hover:bg-gray-900/90 shadow-xl z-50"
+        >
+          <ArrowLeft className="w-6 h-6" />
+        </button>
+        <button
+          onClick={() => flipPage("next")}
+          className="absolute right-[-60px] top-1/2 transform -translate-y-1/2 p-3 rounded-full bg-gray-900/70 text-white hover:bg-gray-900/90 shadow-xl z-50"
+        >
+          <ArrowRight className="w-6 h-6" />
+        </button>
       </div>
+      </div>
+      
     </div>
+
   );
 }
