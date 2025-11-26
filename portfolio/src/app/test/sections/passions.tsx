@@ -4,25 +4,29 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import ImageCarousel from "@/components/image-carousel";
+import { usePreloadImages } from "@/app/test/usePreloadImages";
 
 const passions = [
   { id: "gaming", label: "Gaming", imgs: ["/passions/game1.png","/passions/game2.png","/passions/game3.png","/passions/game4.png",],
     blurb: "Idk dude stuff in here and whatever and like talking about what this is about and why it is included and what i enjoy about it i guess man idk bro lmao xd"
    },
-  { id: "lifting", label: "Weightlifting", imgs: ["/passions/game2.png"],
+  { id: "lifting", label: "Weightlifting", imgs: ["/passions/p1.png","/passions/p2.png", "/passions/p3.png", "/passions/p4.png"],
     blurb: "Idk dude stuff in here and whatever and like talking about what this is about and why it is included and what i enjoy about it i guess man idk bro lmao xd"
    },
-  { id: "tcg", label: "Trading Cards", imgs: ["/passions/game3.png"],
+  { id: "tcg", label: "Trading Cards", imgs: ["/passions/p5.png","/passions/p6.png", "/passions/p7.png", "/passions/p8.png"],
     blurb: "Idk dude stuff in here and whatever and like talking about what this is about and why it is included and what i enjoy about it i guess man idk bro lmao xd"
    },
-  { id: "coding", label: "Coding Projects", imgs: ["/passions/game4.png"],
+  { id: "coding", label: "Coding Projects", imgs: ["/passions/p9.png","/passions/p10.png", "/passions/p11.png", "/passions/p12.png"],
     blurb: "Idk dude stuff in here and whatever and like talking about what this is about and why it is included and what i enjoy about it i guess man idk bro lmao xd"
    },
 ];
 
-export default function PassionsC() {
+export default function Passions() {
   const [active, setActive] = useState("gaming");
   const passion = passions.find((p) => p.id === active)!;
+  const allImages = passions.flatMap((p) => p.imgs);
+
+  usePreloadImages(allImages);
 
   return (
     <section className="w-full min-h-[90vh] flex items-center justify-center px-6 py-20">

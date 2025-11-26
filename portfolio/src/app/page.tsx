@@ -166,7 +166,7 @@ export default function Page() {
                 <p>
                   Disc Golf, Skiing, Swimming, Kendama...
                 </p>
-                <ImageCarousel images={['hobbies/game1.png', 'hobbies/game2.png', 'hobbies/game3.png', 'hobbies/game4.png', 'hobbies/game5.png']} />
+                <ImageCarousel images={['/hobbies/game1.png', '/hobbies/game2.png', '/hobbies/game3.png', '/hobbies/game4.png', '/hobbies/game5.png']} />
 
               </div>
               <div className="p-6 bg-white shadow-md border rounded-lg">
