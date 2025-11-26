@@ -29,7 +29,7 @@ export default function Passions() {
   usePreloadImages(allImages);
 
   return (
-    <section className="w-full min-h-[90vh] flex items-center justify-center px-6 py-20">
+    <section className="w-full min-h-[90vh] flex items-center justify-center px-16 py-20">
   {/* Bordered Hero Container */}
   <div
     className="

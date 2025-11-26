@@ -7,27 +7,27 @@ import Image from "next/image";
 
 const bubbles = [
   {
+    id: "passions",
+    label: "Passions",
+    href: "passions",
+    src: "/preview/game3.png"
+  },
+  {
     id: "projects",
     label: "Projects",
-    href: "/projects",
+    href: "projects",
     src: "/preview/game1.png"
   },
   {
     id: "resume",
     label: "Resume",
-    href: "/resume",
+    href: "resume",
     src: "/preview/game2.png"
-  },
-  {
-    id: "passions",
-    label: "Passions",
-    href: "/passions",
-    src: "/preview/game3.png"
   },
   {
     id: "contact",
     label: "Contact",
-    href: "/contact",
+    href: "contact",
     src: "/preview/game4.png"
   }
 ] as const;
@@ -90,7 +90,7 @@ export default function NavBubbles() {
               exit="exit"
               custom={index}
             >
-              <Link href={b.href} className="pointer-events-auto">
+              <Link href={`#${b.href}`} className="pointer-events-auto">
                 <motion.div
                   whileHover={{ scale: 1.07 }}
                   whileTap={{ scale: 0.94 }}
