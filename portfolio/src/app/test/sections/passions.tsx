@@ -8,29 +8,29 @@ import { usePreloadImages } from "@/app/test/usePreloadImages";
 
 const passions = [
   {
-    id: "coding", label: "Coding", imgs: ["/passions/p9.png", "/passions/p10.png", "/passions/p11.png", "/passions/p12.png"],
-    blurb: "Idk dude stuff in here and whatever and like talking about what this is about and why it is included and what i enjoy about it i guess man idk bro lmao xd"
+    id: "growth", label: "Growth", imgs: ["/passions/p9.png", "/passions/p10.png", "/passions/p11.png", "/passions/p12.png"],
+    blurb: "I’m driven by the idea of always getting better — as a developer, a teammate, and a person. I like exploring new technologies, leveling up my skills through side projects, and staying curious about how things work under the hood. Learning is never “finished”; it’s just something I genuinely enjoy."
   },
   {
-    id: "gaming", label: "Gaming", imgs: ["/passions/game1.png", "/passions/game2.png", "/passions/game3.png", "/passions/game4.png",],
-    blurb: "casuals, esports, puzzles, etc"
+    id: "collaboration", label: "Collaboration", imgs: ["/passions/game1.png", "/passions/game2.png", "/passions/game3.png", "/passions/game4.png",],
+    blurb: "I thrive in environments where people support each other and build things together. Whether it’s pairing on a tough bug, sharing knowledge, or helping a project move forward, I value clear communication and a positive team culture. Good collaboration turns good ideas into great results."
   },
   {
-    id: "sports", label: "Sports", imgs: ["/passions/p1.png", "/passions/p2.png", "/passions/p3.png", "/passions/p4.png"],
-    blurb: "skiing, swimming, disc golf, etc"
+    id: "creativity", label: "Creativity", imgs: ["/passions/p1.png", "/passions/p2.png", "/passions/p3.png", "/passions/p4.png"],
+    blurb: "I love combining technical problem-solving with a creative spark. Whether I’m designing intuitive UI interactions or finding an unconventional approach to a challenge, creativity is what keeps my work exciting. It’s where structure meets imagination — and where the best ideas tend to show up."
   },
   {
-    id: "music", label: "Music", imgs: ["/passions/p5.png", "/passions/p6.png", "/passions/p7.png", "/passions/p8.png"],
-    blurb: "wonky bass music go ee er ee err wubalubadubdub"
+    id: "data", label: "Data", imgs: ["/passions/p5.png", "/passions/p6.png", "/passions/p7.png", "/passions/p8.png"],
+    blurb: "I enjoy digging into data to understand patterns, uncover insights, and tell meaningful stories. From analytics to tinkering with pipelines, I like turning raw information into something useful. Data appeals to the logical part of my brain — the part that loves clarity, accuracy, and well-organized systems."
   },
   {
-    id: "food", label: "Food", imgs: ["/passions/p9.png", "/passions/p10.png", "/passions/p11.png", "/passions/p12.png"],
-    blurb: "eating, cooking, eating while cooking, you know"
+    id: "competition", label: "Competition", imgs: ["/passions/p9.png", "/passions/p10.png", "/passions/p11.png", "/passions/p12.png"],
+    blurb: "I’m energized by challenges — whether it’s a tough engineering puzzle, a coding challenge, or even games that test strategy and adaptability. Competition pushes me to focus, learn quickly, and bring my best effort. I enjoy environments where improvement is the goal and friendly rivalry makes everyone stronger."
   },
 ];
 
 export default function Passions() {
-  const [active, setActive] = useState("gaming");
+  const [active, setActive] = useState("growth");
   const passion = passions.find((p) => p.id === active)!;
   const allImages = passions.flatMap((p) => p.imgs);
 
