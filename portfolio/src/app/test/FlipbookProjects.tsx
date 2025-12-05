@@ -102,10 +102,11 @@ export default function FlipBookProjects() {
 
       if (axis === "rotateX") {
         // VERTICAL NEXT = FLIP UP
-        // Outgoing (right) flips UP toward the top
-        rightControls.start(makeAnim("rotateX", [0, -180]));   // up & away
-        // Incoming (left) flips UP into view
-        leftControls.start(makeAnim("rotateX", [180, 0]));   // from bottom → up
+        rightControls.start(makeAnim("rotateX", [0, 180]));   // up & away
+        leftControls.start(makeAnim("rotateX", [-180, 0]));   // from bottom → up
+        
+        // rightControls.start(makeAnim("rotateX", [180, 0]));    // from top → down
+        // leftControls.start(makeAnim("rotateX", [0, -180]));    // down & away
       } else {
         // HORIZONTAL NEXT (unchanged)
         rightControls.start(makeAnim("rotateY", [0, -180]));
@@ -164,7 +165,6 @@ export default function FlipBookProjects() {
 
   };
 
-
   // Page rendering helper
   const renderPage = (proj: Project, side: "left" | "right") => {
     const isLeft = side === "left";
@@ -216,7 +216,7 @@ export default function FlipBookProjects() {
     "
       >
         {/* BOOK */}
-        <div className="relative w-full max-w-screen-xl  h-[600px] perspective-1500" style={{ perspective: "1500px" }}>
+        <div className="relative w-full max-w-screen-xl h-[70vh] perspective-1500" style={{ perspective: "1500px" }}>
           {/* z-0: book cover */}
           <div className="absolute inset-0 bg-[#b89e7c] p-2 rounded-2xl shadow-[0_0_40px_rgba(0,0,0,0.45)] border-4 border-[#8c7358]" />
 
@@ -234,7 +234,7 @@ export default function FlipBookProjects() {
               animate={leftControls}
               initial={{ rotateY: 0, rotateX: 0 }}
               className={`relative ${originPrev} overflow-hidden`}
-              style={{ transformStyle: "preserve-3d", backfaceVisibility: "hidden" }}
+              style={{ transformStyle: "preserve-3d", backfaceVisibility: "hidden", transformOrigin: isVertical ? "bottom center" : "right center" }}
             >
               {renderPage(project, "left")}
             </motion.div>
@@ -243,7 +243,7 @@ export default function FlipBookProjects() {
               animate={rightControls}
               initial={{ rotateY: 0, rotateX: 0 }}
               className={`relative ${originNext} overflow-hidden`}
-              style={{ transformStyle: "preserve-3d", backfaceVisibility: "hidden" }}
+              style={{ transformStyle: "preserve-3d", backfaceVisibility: "hidden", transformOrigin: isVertical ? "top center" : "left center" }}
             >
               {renderPage(project, "right")}
             </motion.div>
